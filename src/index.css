@@ -1,5 +1,8 @@
 :root {
   --background-color: #252526;
+  --card-cover: #191919;
+  --pink: #ed1b76;
+  --shadow: rgba(0, 0, 0, 0.362);
 }
 
 * {
