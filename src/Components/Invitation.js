@@ -13,7 +13,7 @@ import FAS from "../assests/fas.png";
 import Background from "../assests/bg2.jpg";
 
 function Invitation() {
-  const [loaded, setLoaded] = useState(true);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setLoaded(true), 5000);
@@ -264,6 +264,7 @@ const Container = styled.div`
         top: 180px;
         border-radius: 50%;
         right: -50px;
+        animation-delay: 1s;
         transform-origin: center center;
         animation: moveCircle 5s ease-in-out infinite alternate;
         transition: all 0.3s ease;
