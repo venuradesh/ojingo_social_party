@@ -12,11 +12,21 @@ import Heading from "../assests/text.png";
 import FAS from "../assests/fas.png";
 import Background from "../assests/bg2.jpg";
 
+//music
+import sound from "../assests/music.mp3";
+
 function Invitation() {
   const [loaded, setLoaded] = useState(false);
 
+  const play = () => {
+    new Audio(sound).play();
+  };
+
   useEffect(() => {
-    setTimeout(() => setLoaded(true), 5000);
+    setTimeout(() => {
+      setLoaded(true);
+      play();
+    }, 5000);
   }, []);
 
   return (
@@ -30,7 +40,6 @@ function Invitation() {
       ) : (
         <div className="invitation">
           {
-            /* <img src={Site} alt="invitation" /> */
             <div className="card-container">
               <div className="heading">
                 <img src={Heading} alt="heading" />
@@ -38,9 +47,7 @@ function Invitation() {
               <div className="background">
                 <div className="square"></div>
                 <div className="circle"></div>
-                {/* <img src={Circle} alt="circle" className="circle" /> */}
                 <img src={Triangle} alt="triangle" className="triangle" />
-                {/* <img src={Square} alt="square" className="square" /> */}
                 <div className="square2"></div>
               </div>
               <div className="content">
