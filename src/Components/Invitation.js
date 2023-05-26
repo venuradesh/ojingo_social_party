@@ -11,7 +11,7 @@ function Invitation() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setLoaded(true), 3000);
+    setTimeout(() => setLoaded(true), 5000);
   }, []);
 
   return (
@@ -48,58 +48,60 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     position: relative;
+    width: 150px;
 
     img {
       width: 50px;
     }
 
     .circle {
-      animation: loadingCircle 2s ease infinite;
+      transition: all 2s ease;
+      animation: loadingCircle 2s ease-in-out infinite alternate;
 
       @keyframes loadingCircle {
         0% {
-          order: 1;
+          transform: translateX(0px);
         }
         50% {
-          order: 3;
+          transform: translateX(100px);
         }
 
         100% {
-          order: 2;
+          transform: translateX(50px);
         }
       }
     }
 
     .triangle {
-      animation: loadingTriangle 2s ease infinite;
+      animation: loadingTriangle 2s ease infinite alternate;
 
       @keyframes loadingTriangle {
         0% {
-          order: 2;
+          transform: translateX(0px);
         }
         50% {
-          order: 1;
+          transform: translateX(-50px);
         }
 
         100% {
-          order: 3;
+          transform: translateX(50px);
         }
       }
     }
 
     .square {
-      animation: loadingSquare 2s ease infinite;
+      animation: loadingSquare 2s ease infinite alternate;
 
       @keyframes loadingSquare {
         0% {
-          order: 3;
+          transform: translateX(0px);
         }
         50% {
-          order: 2;
+          transform: translateX(-50px);
         }
 
         100% {
-          order: 1;
+          transform: translateX(-100px);
         }
       }
     }
