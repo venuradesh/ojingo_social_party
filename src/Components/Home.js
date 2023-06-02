@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 //invitation
 import Site from "../assests/site.jpg";
 import Circle from "../assests/circle.png";
 import Square from "../assests/square.png";
 import Triangle from "../assests/triangle.png";
-import Heading from "../assests/text.png";
+import Heading from "../assests/page-2-topic.png";
 import FAS from "../assests/fas.png";
-import Background from "../assests/bg2.jpg";
-import ButtonText from "../assests/press_button_text.png";
-import Button from "../assests/button.png";
+import ButtonText from "../assests/page-2-heading.png";
+import Button1 from "../assests/button1.png";
+import Button2 from "../assests/button2.png";
+import Button3 from "../assests/button3.png";
+import HelpText from "../assests/help-text.png";
+import Help from "../assests/help.png";
 
 //music
 import sound from "../assests/music.mp3";
 
-function Invitation() {
-  const navigate = useNavigate();
+function Home() {
   const [loaded, setLoaded] = useState(false);
 
   const play = () => {
@@ -60,7 +61,15 @@ function Invitation() {
                 <div className="btn-text">
                   <img src={ButtonText} alt="button Text" />
                   <div className="btn">
-                    <img src={Button} alt="button" onClick={() => navigate("/home")} />
+                    <img src={Button1} alt="button1" />
+                    <img src={Button2} alt="button2" className="btn-inactive" />
+                    <img src={Button3} alt="button3" className="btn-inactive" />
+                  </div>
+                  <div className="help">
+                    <div className="text">
+                      <img src={HelpText} alt="help-text" />
+                      <img src={Help} alt="help" className="help-btn" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -75,7 +84,7 @@ function Invitation() {
   );
 }
 
-export default Invitation;
+export default Home;
 
 const Container = styled.div`
   width: 100vw;
@@ -171,15 +180,18 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(${Background});
+    background-color: var(--page-color);
     background-size: contain;
     position: relative;
     overflow: hidden;
     z-index: 0;
 
     .heading {
+      position: relative;
+      top: -10px;
+
       img {
-        width: 280px;
+        width: 320px;
       }
     }
 
@@ -205,7 +217,7 @@ const Container = styled.div`
       }
 
       .triangle {
-        box-shadow: 0 0 10px 0 var(--shadow);
+        /* box-shadow: 0 0 10px 0 var(--shadow); */
         transform-origin: 50% 50%;
         animation: moveTriangle 5s ease-in-out infinite alternate;
         animation-delay: 2s;
@@ -300,12 +312,19 @@ const Container = styled.div`
 
     .button-container {
       height: 100%;
+      display: flex;
       align-items: center;
       justify-content: center;
 
       .btn-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 30px;
+        justify-content: center;
+
         img {
-          width: 100%;
+          width: 250px;
         }
 
         .btn {
@@ -314,13 +333,47 @@ const Container = styled.div`
           justify-content: center;
           position: relative;
           top: -20px;
+          width: 100%;
+          transform: scale(0.9);
 
           img {
-            width: 200px;
             cursor: pointer;
+            width: 100px;
+
+            &.btn-inactive {
+              cursor: none;
+              pointer-events: none;
+              opacity: 0.7;
+            }
+          }
+        }
+
+        .help {
+          position: relative;
+          top: -20px;
+
+          .text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .help-btn {
+              width: 80px;
+              cursor: pointer;
+            }
+
+            img {
+              width: 200px;
+            }
           }
         }
       }
+    }
+
+    .footer {
+      position: relative;
+      top: -25px;
     }
   }
 `;
