@@ -66,12 +66,12 @@ function Home() {
                     <img src={Button2} alt="button2" onClick={() => navigate("/triangle")} />
                     <img src={Button3} alt="button3" className="btn-inactive" />
                   </div>
-                  <div className="help">
+                  {/* <div className="help">
                     <div className="text">
                       <img src={HelpText} alt="help-text" />
                       <img src={Help} alt="help" className="help-btn" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="footer">
@@ -189,7 +189,7 @@ const Container = styled.div`
 
     .heading {
       position: relative;
-      top: -10px;
+      /* top: -10px; */
 
       img {
         width: 320px;
@@ -326,6 +326,8 @@ const Container = styled.div`
 
         img {
           width: 250px;
+          position: relative;
+          top: -40px;
         }
 
         .btn {
@@ -373,8 +375,8 @@ const Container = styled.div`
     }
 
     .footer {
-      position: relative;
-      top: -25px;
+      position: absolute;
+      bottom: 0px;
     }
   }
 `;
