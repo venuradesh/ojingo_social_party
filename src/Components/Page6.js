@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 //invitation
-import Site from "../assests/site.jpg";
+import Man from "../assests/man-square.png";
 import Circle from "../assests/circle.png";
 import Square from "../assests/square.png";
 import Triangle from "../assests/triangle.png";
-import Heading from "../assests/page-2-topic.png";
+import Heading from "../assests/Square-heading.png";
 import FAS from "../assests/fas.png";
-import ButtonText from "../assests/page-2-heading.png";
-import Button1 from "../assests/button1.png";
-import Button2 from "../assests/button2.png";
-import Button3 from "../assests/button3.png";
-import HelpText from "../assests/need-help.png";
-import Help from "../assests/help.png";
+import CircleText from "../assests/page-3-heading.png";
+import Hint from "../assests/square-text-hint.png";
+import NormalText from "../assests/normalTextCircle.png";
+import Close from "../assests/close.png";
 
 //music
 import sound from "../assests/music.mp3";
+import { useNavigate } from "react-router-dom";
 
-function Home() {
+function Page6() {
   const navigate = useNavigate();
   const [loaded, setLoaded] = useState(false);
 
@@ -49,10 +47,7 @@ function Home() {
                 <img src={Heading} alt="heading" />
               </div>
               <div className="background">
-                <div className="square"></div>
-                <div className="circle"></div>
-                <img src={Triangle} alt="triangle" className="triangle" />
-                <div className="square2"></div>
+                <img src={Man} alt="man" />
               </div>
               {/* <div className="content">
                 <img src={Date} alt="date" />
@@ -60,18 +55,11 @@ function Home() {
               </div>*/}
               <div className="button-container">
                 <div className="btn-text">
-                  <img src={ButtonText} alt="button Text" />
-                  <div className="btn">
-                    <img src={Button1} alt="button1" onClick={() => navigate("/circle")} />
-                    <img src={Button2} alt="button2" onClick={() => navigate("/triangle")} />
-                    <img src={Button3} alt="button3" onClick={() => navigate("/square")} />
-                  </div>
-                  <div className="help">
-                    <div className="text">
-                      <img src={HelpText} alt="help-text" />
-                      <img src={Help} alt="help" className="help-btn" onClick={() => navigate("/help")} />
-                    </div>
-                  </div>
+                  <img src={Hint} alt="button Text" className="hint-text" />
+                  <img src={NormalText} alt="desc" className="desc" />
+                </div>
+                <div className="close">
+                  <img src={Close} alt="close-btn" onClick={() => navigate("/home")} />
                 </div>
               </div>
               <div className="footer">
@@ -85,7 +73,7 @@ function Home() {
   );
 }
 
-export default Home;
+export default Page6;
 
 const Container = styled.div`
   width: 100vw;
@@ -181,7 +169,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--page-color);
+    background-color: var(--page3-color);
     background-size: contain;
     position: relative;
     overflow: hidden;
@@ -189,10 +177,10 @@ const Container = styled.div`
 
     .heading {
       position: relative;
-      /* top: -10px; */
+      /* top: 30px; */
 
       img {
-        width: 320px;
+        width: 150px;
       }
     }
 
@@ -211,111 +199,29 @@ const Container = styled.div`
     .background {
       img {
         position: absolute;
-        width: 300px;
+        width: 100%;
         bottom: 0;
-        left: -150px;
+        left: 0;
         z-index: -1;
-      }
-
-      .triangle {
-        /* box-shadow: 0 0 10px 0 var(--shadow); */
-        transform-origin: 50% 50%;
-        animation: moveTriangle 5s ease-in-out infinite alternate;
-        animation-delay: 2s;
-        transform-origin: 50% 50%;
-        transition: all 0.3s ease;
-
-        @keyframes moveTriangle {
-          0% {
-            transform: rotate(0);
-          }
-
-          100% {
-            transform: rotate(30deg);
-          }
-        }
-      }
-
-      .square {
-        position: absolute;
-        width: 130px;
-        height: 130px;
-        top: 40px;
-        left: -30px;
-        z-index: -1;
-        border: 25px solid var(--pink);
-        box-shadow: 0 0 10px 0 var(--shadow);
-        transform-origin: 50% 50%;
-        animation: moveSqaure1 5s ease-in-out infinite alternate;
-        transition: all 0.3s ease;
-
-        @keyframes moveSqaure1 {
-          0% {
-            transform: rotate(0) translateY(0);
-          }
-
-          100% {
-            transform: rotate(100deg) translateY(10px);
-          }
-        }
-      }
-
-      .square2 {
-        position: absolute;
-        width: 130px;
-        height: 130px;
-        bottom: -40px;
-        right: -30px;
-        z-index: -1;
-        border: 25px solid var(--pink);
-        box-shadow: 0 0 10px 0 var(--shadow);
-        transform-origin: 50% 50%;
-        animation: moveSqaure 5s ease-in-out infinite alternate;
-        transition: all 0.3s ease;
-
-        @keyframes moveSqaure {
-          0% {
-            transform: rotate(0) translateX(0) translateY(0);
-          }
-
-          100% {
-            transform: rotate(100deg) translateX(-80px) translateY(-10px);
-          }
-        }
-      }
-
-      .circle {
-        position: absolute;
-        width: 130px;
-        height: 130px;
-        z-index: -1;
-        border: 20px solid var(--pink);
-        box-shadow: 0 0 10px 0 var(--shadow);
-        top: 180px;
-        border-radius: 50%;
-        right: -50px;
-        animation-delay: 1s;
-        transform-origin: center center;
-        animation: moveCircle 5s ease-in-out infinite alternate;
-        transition: all 0.3s ease;
-
-        @keyframes moveCircle {
-          0% {
-            transform: translateY(0);
-          }
-
-          100% {
-            transform: translateY(-100px);
-          }
-        }
       }
     }
 
     .button-container {
       height: 100%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+
+      .close {
+        cursor: pointer;
+
+        img {
+          width: 100px;
+          position: relative;
+          top: -35px;
+        }
+      }
 
       .btn-text {
         display: flex;
@@ -325,8 +231,17 @@ const Container = styled.div`
         justify-content: center;
 
         img {
-          width: 250px;
+          width: 150px;
           position: relative;
+
+          &.desc {
+            width: 100%;
+            top: -30px;
+          }
+
+          &.hint-text {
+            top: -20px;
+          }
         }
 
         .btn {
@@ -352,7 +267,7 @@ const Container = styled.div`
 
         .help {
           position: relative;
-          top: -40px;
+          top: -20px;
 
           .text {
             display: flex;
